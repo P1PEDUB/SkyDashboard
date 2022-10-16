@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
 import ContentRowProducts from "./ContentRowProducts";
 import LastProductDb from "./LastProductDb";
 import ProductList from "./ProductsList";
 
 const ContentRowTop = () => {
+
+  let [lastProduct, setLastProduct] = useState([]);
+
+  let endpointLastProduct = "http://localhost:5000/api/products/lastProduct";
+
+  useEffect(() => {
+    
+    if(lastProduct.length === 0){
+      fetch(endpointLastProduct,  {
+        method: 'GET',
+        headers: { 'Content-type': 'application/json'},
+      })
+        .then(response => {
+          return response.json();
+        }).then(data => {
+          if(data.data.image != null && data.data.image != "" && data.data.image != undefined){
+            data.data.image = "http://localhost:5000/img/uploads/products/" + data.data.image;
+          }
+          setLastProduct(data.data);
+        })
+        .catch(error => {
+          console.log("Error al intentar consumir la api con endpoint: " + endpointLastProduct + ". Se obtiene el siguiente error: " + error);
+        })
+    }
+      
+  });
   return (
     <>
       <div class="container-fluid">
@@ -15,13 +41,17 @@ const ContentRowTop = () => {
         <ContentRowProducts />
         {/* End Products and Users in Data Base */}
 
-        {/* Content Row Last Movie in Data Base */}
-        <LastProductDb />
-        {/* Last Movie in DB */}
+        {/* Content Row Last Product in Data Base */}
+        <LastProductDb 
+          id={lastProduct.id}
+          productName={lastProduct.product_name}
+          description={lastProduct.description}
+          image={lastProduct.image}/>
+        {/* Last Product in DB */}
 
-        {/* End content row last movie in Data Base */}
+        {/* End content row last product in Data Base */}
         <ProductList />
-        {/* Genres in DB */}
+        {/* ProductList in DB */}
       </div>
     </>
   );

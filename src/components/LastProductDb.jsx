@@ -1,6 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
+/*
+id={lastProduct.id}
+          name={lastProduct.product_name}
+          description={lastProduct.description}
+          image={lastProduct.image}/>
+		  */
 
-const LastProductDb = () => {
+const LastProductDb = ({id, productName, description, image}) => {
   return (
     <div>
         <div class="row">
@@ -12,9 +19,11 @@ const LastProductDb = () => {
 								</div>
 								<div class="card-body">
 									<div class="text-center">
-										<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style= {{ width:"40rem" }} src="assets/images/saltoDemostracion.jpeg" alt=" Salto de Demostracion para eventos " />
+										<img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style= {{ width:"40rem" }} src={image} alt=" Salto de Demostracion para eventos " />
 									</div>
-									<p>SALTO DE DEMOSTRACIÓN</p>
+									<div>
+										{productName}
+									</div>
 									<a class="btn btn-danger" target="_blank" rel="nofollow" href="/">View product detail</a>
 								</div>
 							</div>
@@ -26,5 +35,11 @@ const LastProductDb = () => {
 	</div>	
   )
 };
+
+/*
+LastProductDb.PropTypes = {
+
+}
+*/
 
 export default LastProductDb;
