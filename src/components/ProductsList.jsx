@@ -1,19 +1,45 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
 import ProductsCard from "./ProductsCard";
 
 const ProductList = () => {
+
+  let [products, setProducts] = useState([]);
+
+  let endpointProducts = "http://localhost:5000/api/products";
+
+  useEffect(() => {
+    
+    if(products.length === 0){
+      fetch(endpointProducts,  {
+        method: 'GET',
+        headers: { 'Content-type': 'application/json'},
+      })
+        .then(response => {
+          return response.json();
+        }).then(data => {
+          console.log("ejecucion productos");
+          setProducts(data);
+        })
+        .catch(error => {
+          console.log("Error al intentar consumir la api con endpoint: " + endpointProducts + ". Se obtiene el siguiente error: " + error);
+        })
+    }
+      
+  });
+
   const properties = {
     titulo: "LISTA DE PRODUCTOS",
   };
 
-  const propertiesArray = [
-
-   "Salto Tandem",
-   "Curso para principiantes",
-   "Curso Wingsuit",
-   "Curso para Avanzados",
-   "Salto de Demostracion",
-  ];
+  
+  let contenido;
+  if(products == undefined || products == null || products.length == 0){
+    contenido = "Cargando...";
+  }else{
+    contenido = products.products.map ((property, i) => {
+      return <ProductsCard title= {property.name} key={i} id={property.id}/>
+     });
+  }
 
   return (
     <div>
@@ -26,14 +52,12 @@ const ProductList = () => {
           </div>
           <div class="card-body">
             <div class="row">
-             {propertiesArray.map ((property, i) => {
-              return <ProductsCard title= {property} key={i} />
-             })}
-              </div>
+             {contenido}
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 };
 

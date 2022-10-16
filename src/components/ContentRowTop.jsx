@@ -11,9 +11,9 @@ const ContentRowTop = () => {
           <h1 class="h3 mb-0 text-gray-800">App Dashboard</h1>
         </div>
 
-        {/* Content Row Movies*/}
+        {/* Content Row Products and Users */}
         <ContentRowProducts />
-        {/* End movies in Data Base */}
+        {/* End Products and Users in Data Base */}
 
         {/* Content Row Last Movie in Data Base */}
         <LastProductDb />
