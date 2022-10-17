@@ -33,7 +33,7 @@ const ProductList = () => {
 
   
   let contenido;
-  if(products == undefined || products == null || products.length == 0){
+  if(products === undefined || products === null || products.length === 0){
     contenido = "Cargando...";
   }else{
     contenido = products.products.map ((property, i) => {
@@ -43,15 +43,15 @@ const ProductList = () => {
 
   return (
     <div>
-      <div class="col-lg-6 mb-4">
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h5 class="m-0 font-weight-bold text-gray-800">
+      <div className="col-lg-6 mb-4">
+        <div className="card shadow mb-4">
+          <div className="card-header py-3">
+            <h5 className="m-0 font-weight-bold text-gray-800">
               {properties.titulo}
             </h5>
           </div>
-          <div class="card-body">
-            <div class="row">
+          <div className="card-body">
+            <div className="row">
              {contenido}
             </div>
           </div>

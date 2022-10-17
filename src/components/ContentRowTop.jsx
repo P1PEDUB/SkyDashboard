@@ -2,6 +2,8 @@ import React, { useEffect, useState} from "react";
 import ContentRowProducts from "./ContentRowProducts";
 import LastProductDb from "./LastProductDb";
 import ProductList from "./ProductsList";
+import ProductlDetail from "./ProductDetail";
+import WiewDetail from "./WiewDetail";
 
 const ContentRowTop = () => {
 
@@ -19,7 +21,7 @@ const ContentRowTop = () => {
         .then(response => {
           return response.json();
         }).then(data => {
-          if(data.data.image != null && data.data.image != "" && data.data.image != undefined){
+          if(data.data.image !== null && data.data.image !== "" && data.data.image !== undefined){
             data.data.image = "http://localhost:5000/img/uploads/products/" + data.data.image;
           }
           setLastProduct(data.data);
@@ -37,21 +39,20 @@ const ContentRowTop = () => {
           <h1 class="h3 mb-0 text-gray-800">App Dashboard</h1>
         </div>
 
-        {/* Content Row Products and Users */}
+       
         <ContentRowProducts />
-        {/* End Products and Users in Data Base */}
-
-        {/* Content Row Last Product in Data Base */}
+     
         <LastProductDb 
           id={lastProduct.id}
           productName={lastProduct.product_name}
           description={lastProduct.description}
           image={lastProduct.image}/>
-        {/* Last Product in DB */}
 
-        {/* End content row last product in Data Base */}
+          <WiewDetail />
+      
         <ProductList />
-        {/* ProductList in DB */}
+       
+        <ProductlDetail />
       </div>
     </>
   );

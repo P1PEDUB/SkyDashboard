@@ -1,12 +1,11 @@
 import React from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import ProductsList from "./ProductsList";
-import LastProduct from "./LastProductDb"
+import LastProduct from "./LastProductDb";
 import ContentRowProducts from "./ContentRowProducts";
-import ContentWrapper from "./ContentWrapper"
+import ContentWrapper from "./ContentWrapper";
 import Error404 from "./Error404";
 
- 
 const Sidebar = () => {
   return (
     <React.Fragment>
@@ -32,12 +31,11 @@ const Sidebar = () => {
         <hr className="sidebar-divider my-0" />
 
         {/* Nav Item - Dashboard */}
-        <li className="nav-item active">
+        <li className="nav-item">
           <Link to="/">
-          <i className="fas fa-fw fa-tachometer-alt"></i>
+            <i className="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard - SkydiveHouse</span>
-          </Link>  
-          
+          </Link>
         </li>
 
         {/* Divider */}
@@ -47,50 +45,40 @@ const Sidebar = () => {
         <div className="sidebar-heading">Actions</div>
 
         {/* Nav Item - Pages */}
+
         <li className="nav-item">
-          <a className="nav-link collapsed" href="/">
+          <a className="nav-link collapsed" href="/content-row-products">
             <i className="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+            <span>Data</span>
           </a>
         </li>
 
-        {/* Nav Item - Charts */}
         <li className="nav-item">
-          <a className="nav-link" href="/">
+          <a className="nav-link" href="/last-product">
             <i className="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span>
+            <span>Last Product</span>
           </a>
         </li>
 
         {/* Nav Item - Tables */}
         <li className="nav-item">
-          <a className="nav-link" href="/">
+          <a className="nav-link" href="/products">
             <i className="fas fa-fw fa-table"></i>
-            <span>Tables</span>
+            <span>Products</span>
           </a>
-        </li>
-        <li>
-          <Link to="/products">Productos</Link>
-        </li>
-        <li>
-          <Link to="/last-product">LastProduct</Link>
-        </li>
-        <li>
-          <Link to="/content-row-products">ContentRowProducts</Link>
         </li>
 
         {/* Divider */}
         <hr className="sidebar-divider d-none d-md-block" />
       </ul>
-    <Switch>
-      <Route  exact path="/" component= {ContentWrapper} />
-      <Route path="/products" component= {ProductsList} />
-      <Route path="/last-product"component= {LastProduct} />
-      <Route path="/content-row-products" component= {ContentRowProducts} />
-      <Route component= {Error404} />
-    </Switch>
-
-      </React.Fragment>
+      <Switch>
+        <Route exact path="/" component={ContentWrapper} />
+        <Route path="/products" component={ProductsList} />
+        <Route path="/last-product" component={LastProduct} />
+        <Route path="/content-row-products" component={ContentRowProducts} />
+        <Route component={Error404} />
+      </Switch>
+    </React.Fragment>
   );
 };
 

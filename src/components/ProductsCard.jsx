@@ -6,11 +6,11 @@ const ProductsCard = ({ title }) => {
     <>
       <div className="col-lg-6 mb-4">
         <div className="card bg-dark text-white shadow">
-          <div className="card-body">{title}</div>
+        <a className="btn btn-info btn-lg" target="_blank" rel="nofollow" href="/"> {title} </a>
         </div>
       </div>
     </>
-  );
+  )
 };
 
 ProductsCard.propTypes = {
@@ -20,5 +20,7 @@ ProductsCard.propTypes = {
 ProductsCard.defaultProps = {
   title: "undefined",
 };
+
+
 
 export default ProductsCard;
