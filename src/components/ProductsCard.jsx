@@ -6,7 +6,7 @@ const ProductsCard = ({ title }) => {
     <>
       <div className="col-lg-6 mb-4">
         <div className="card bg-dark text-white shadow">
-        <a className="btn btn-info btn-lg" target="_blank" rel="nofollow" href="/"> {title} </a>
+        <a className="btn btn-info btn-lg" target="_blank" rel="nofollow" href="/product-detail"> {title} </a>
         </div>
       </div>
     </>

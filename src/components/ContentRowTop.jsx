@@ -2,8 +2,7 @@ import React, { useEffect, useState} from "react";
 import ContentRowProducts from "./ContentRowProducts";
 import LastProductDb from "./LastProductDb";
 import ProductList from "./ProductsList";
-import ProductlDetail from "./ProductDetail";
-import WiewDetail from "./WiewDetail";
+
 
 const ContentRowTop = () => {
 
@@ -48,11 +47,11 @@ const ContentRowTop = () => {
           description={lastProduct.description}
           image={lastProduct.image}/>
 
-          <WiewDetail />
+          
       
         <ProductList />
-       
-        <ProductlDetail />
+      
+        
       </div>
     </>
   );

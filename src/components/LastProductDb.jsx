@@ -1,5 +1,6 @@
 import React from "react";
-import WiewDetail from "./WiewDetail";
+
+
 
 const LastProductDb = ({ id, productName, description, image }) => {
   return (
@@ -26,7 +27,7 @@ const LastProductDb = ({ id, productName, description, image }) => {
                 className="btn btn-primary"
                 target="_blank"
                 rel="nofollow"
-                href="/"
+                href="/wiew-detail"
               >
                 View product detail
               </a>
@@ -38,6 +39,7 @@ const LastProductDb = ({ id, productName, description, image }) => {
   );
 };
 
-<WiewDetail />;
+
+
 
 export default LastProductDb;

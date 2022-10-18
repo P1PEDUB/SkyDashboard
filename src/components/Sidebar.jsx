@@ -4,6 +4,8 @@ import ProductsList from "./ProductsList";
 import LastProduct from "./LastProductDb";
 import ContentRowProducts from "./ContentRowProducts";
 import ContentWrapper from "./ContentWrapper";
+import WiewDetail from "./WiewDetail";
+import ProductDetail from "./ProductDetail";
 import Error404 from "./Error404";
 
 const Sidebar = () => {
@@ -76,6 +78,8 @@ const Sidebar = () => {
         <Route path="/products" component={ProductsList} />
         <Route path="/last-product" component={LastProduct} />
         <Route path="/content-row-products" component={ContentRowProducts} />
+        <Route path="/wiew-detail" component={WiewDetail} />
+        <Route path="/product-detail" component={ProductDetail} />
         <Route component={Error404} />
       </Switch>
     </React.Fragment>
