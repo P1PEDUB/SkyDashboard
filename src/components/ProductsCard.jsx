@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const ProductsCard = ({ title }) => {
+const ProductsCard = ({ title, id }) => {
   return (
     <>
       <div className="col-lg-6 mb-4">
         <div className="card bg-dark text-white shadow">
-        <a className="btn btn-info btn-lg" target="_blank" rel="nofollow" href="/product-detail"> {title} </a>
+        <Link className="btn btn-info btn-lg" rel="nofollow" to={`/wiew-detail/${id}`}> {title} </Link>
         </div>
       </div>
     </>

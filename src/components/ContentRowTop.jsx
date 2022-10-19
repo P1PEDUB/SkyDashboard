@@ -41,11 +41,7 @@ const ContentRowTop = () => {
        
         <ContentRowProducts />
      
-        <LastProductDb 
-          id={lastProduct.id}
-          productName={lastProduct.product_name}
-          description={lastProduct.description}
-          image={lastProduct.image}/>
+        <LastProductDb/>
 
           
       

@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
+import { Link } from "react-router-dom";
 
 
 
-const LastProductDb = ({ id, productName, description, image }) => {
+
+const LastProductDb = () => {
+
+  let [lastProduct, setLastProduct] = useState([]);
+
+  let endpointLastProduct = "http://localhost:5000/api/products/lastProduct";
+
+  useEffect(() => {
+    
+    if(lastProduct.length === 0){
+      fetch(endpointLastProduct,  {
+        method: 'GET',
+        headers: { 'Content-type': 'application/json'},
+      })
+        .then(response => {
+          return response.json();
+        }).then(data => {
+          if(data.data.image !== null && data.data.image !== "" && data.data.image !== undefined){
+            data.data.image = "http://localhost:5000/img/uploads/products/" + data.data.image;
+          }
+          setLastProduct(data.data);
+        })
+        .catch(error => {
+          console.log("Error al intentar consumir la api con endpoint: " + endpointLastProduct + ". Se obtiene el siguiente error: " + error);
+        })
+    }
+      
+  });
   return (
     <div>
       <div className="row">
@@ -18,19 +46,18 @@ const LastProductDb = ({ id, productName, description, image }) => {
                 <img
                   className="img-fluid px-3 px-sm-4 mt-3 mb-4"
                   style={{ width: "40rem" }}
-                  src={image}
+                  src={lastProduct.image}
                   alt=" Salto de Demostracion para eventos "
                 />
               </div>
-              <div>{productName}</div>
-              <a
+              <div>{lastProduct.product_name}</div>
+              <Link
                 className="btn btn-primary"
-                target="_blank"
                 rel="nofollow"
-                href="/wiew-detail"
+                to={`/wiew-detail/${lastProduct.id}`}
               >
                 View product detail
-              </a>
+              </Link>
             </div>
           </div>
         </div>

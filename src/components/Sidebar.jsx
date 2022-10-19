@@ -5,20 +5,19 @@ import LastProduct from "./LastProductDb";
 import ContentRowProducts from "./ContentRowProducts";
 import ContentWrapper from "./ContentWrapper";
 import WiewDetail from "./WiewDetail";
-import ProductDetail from "./ProductDetail";
 import Error404 from "./Error404";
 
 const Sidebar = () => {
   return (
     <React.Fragment>
       <ul
-        className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion"
-        id="accordionSidebar"
+        className="navbar-nav sidebar sidebar-dark accordion"
+        id="accordionSidebar" style={{backgroundColor: "black"}}
       >
         {/*Sidebar - Brand*/}
-        <a
+        <Link
           className="sidebar-brand d-flex align-items-center justify-content-center"
-          href="/"
+          to="/"
         >
           <div className="sidebar-brand-icon">
             <img
@@ -27,18 +26,12 @@ const Sidebar = () => {
               alt="Digital House"
             />
           </div>
-        </a>
+        </Link>
 
         {/* Divider */}
         <hr className="sidebar-divider my-0" />
 
-        {/* Nav Item - Dashboard */}
-        <li className="nav-item">
-          <Link to="/">
-            <i className="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard - SkydiveHouse</span>
-          </Link>
-        </li>
+      
 
         {/* Divider */}
         <hr className="sidebar-divider" />
@@ -49,25 +42,25 @@ const Sidebar = () => {
         {/* Nav Item - Pages */}
 
         <li className="nav-item">
-          <a className="nav-link collapsed" href="/content-row-products">
+          <Link className="nav-link collapsed" to="/content-row-products">
             <i className="fas fa-fw fa-folder"></i>
             <span>Data</span>
-          </a>
+          </Link>
         </li>
 
         <li className="nav-item">
-          <a className="nav-link" href="/last-product">
+          <Link className="nav-link" to="/last-product">
             <i className="fas fa-fw fa-chart-area"></i>
             <span>Last Product</span>
-          </a>
+          </Link>
         </li>
 
         {/* Nav Item - Tables */}
         <li className="nav-item">
-          <a className="nav-link" href="/products">
+          <Link className="nav-link" to="/products">
             <i className="fas fa-fw fa-table"></i>
             <span>Products</span>
-          </a>
+          </Link>
         </li>
 
         {/* Divider */}
@@ -78,8 +71,7 @@ const Sidebar = () => {
         <Route path="/products" component={ProductsList} />
         <Route path="/last-product" component={LastProduct} />
         <Route path="/content-row-products" component={ContentRowProducts} />
-        <Route path="/wiew-detail" component={WiewDetail} />
-        <Route path="/product-detail" component={ProductDetail} />
+        <Route path="/wiew-detail/:productId" component={WiewDetail} />
         <Route component={Error404} />
       </Switch>
     </React.Fragment>
