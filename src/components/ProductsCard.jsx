@@ -8,7 +8,7 @@ const ProductsCard = ({ title, id }) => {
     <>
       <div className="col-lg-12 mb-4">
         <div className="card bg-dark text-white shadow">
-          <Link className="btn btn-lg form-button2" rel="nofollow" to={`/wiew-detail/${id}`}> {title} </Link>
+          <Link className="btn form-button2" rel="nofollow" to={`/wiew-detail/${id}`}> {title} </Link>
         </div>
       </div>
     </>
