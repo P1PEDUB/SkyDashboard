@@ -36,8 +36,8 @@ const Topbar = () => {
     {/* Nav Item - User Information */}
     <li className="nav-item dropdown no-arrow">
         <a className="nav-link dropdown-toggle" href="/" id="userDropdown">
-            <span className="mr-2 d-none d-lg-inline text-gray-600 small">Jordan Walke</span>
-            <img className="img-profile rounded-circle" src="assets/images/jordan-walke.png" alt="Jordan Walke - Creador de React" width="60" />
+            <span className="mr-2 d-none d-lg-inline text-gray-600 small">Aemond Targaryen</span>
+            <img className="img-profile rounded-circle" src="assets/images/aemond_targaryen.jpg" alt="Aemond Targayren - Creador de React" width="60" />
         </a>
     </li>
 

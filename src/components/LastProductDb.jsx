@@ -52,7 +52,8 @@ const LastProductDb = () => {
               </div>
               <div>{lastProduct.product_name}</div>
               <Link
-                className="btn btn-primary"
+                style={{backgroundColor: "#962420", color: "white"}}
+                className="btn"
                 rel="nofollow"
                 to={`/wiew-detail/${lastProduct.id}`}
               >

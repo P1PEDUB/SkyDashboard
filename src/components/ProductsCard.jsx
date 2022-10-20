@@ -7,7 +7,7 @@ const ProductsCard = ({ title, id }) => {
     <>
       <div className="col-lg-6 mb-4">
         <div className="card bg-dark text-white shadow">
-        <Link className="btn btn-info btn-lg" rel="nofollow" to={`/wiew-detail/${id}`}> {title} </Link>
+        <Link className="btn btn-danger btn-lg" color="#962420" rel="nofollow" to={`/wiew-detail/${id}`}> {title} </Link>
         </div>
       </div>
     </>

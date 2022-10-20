@@ -22,7 +22,7 @@ const Sidebar = () => {
           <div className="sidebar-brand-icon">
             <img
               className="w-100"
-              src="assets/images/skyDashboard.png"
+              src="assets/images/SkyDashboard-red-white.png"
               alt="Digital House"
             />
           </div>
